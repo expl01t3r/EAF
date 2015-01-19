@@ -27,7 +27,6 @@ def login():
         resp = 0
         try:
             resp = request.urlopen(templink).status
-            #print(templink)
             if resp == 200:
                 print('Possível Pagina: {link}{ln}' .format(link=templink, ln=50*'-'))
         except:
