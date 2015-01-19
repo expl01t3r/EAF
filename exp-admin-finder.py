@@ -23,10 +23,14 @@ def login():
     site = input('Digite o site\nEx.:www.site.com: ')
     while True:
         tempwl = wordlist.readline()
+        if not tempwl:
+            print('Finalizado')
+            break
         templink = ('http://'+site+'/'+tempwl)
         resp = 0
         try:
             resp = request.urlopen(templink).status
+            #print(templink)
             if resp == 200:
                 print('Possível Pagina: {link}{ln}' .format(link=templink, ln=50*'-'))
         except:
